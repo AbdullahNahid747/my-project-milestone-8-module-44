@@ -15,13 +15,15 @@ const Navigationbar = () => {
 
 
     return (
-        <nav>
-            <div className="text-2xl md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <nav className=" text-black p-6 bg-orange-300">
+            <div className="btn border-none bg-slate-400 text-2xl md:hidden" onClick={() => setIsOpen(!isOpen)}>
                 {
                     isOpen === true ? <AiOutlineClose></AiOutlineClose> : <AiOutlineAlignLeft className=""></AiOutlineAlignLeft>
                 }
             </div>
-            <ul className="md:flex">
+            <ul className={` rounded-2xl duration-1000 md:flex absolute md:static 
+           ${!isOpen ? 'top-20' : '-top-60'}
+           bg-orange-300 px-6 shadow-lg"`}>
                 {
                     routes.map(route => <Link key={route.id} route={route}></Link> )  
                 }
